@@ -1,5 +1,4 @@
 # spring_site
-Clothes Site
 Using technologies: Spring Boot, Spring Data, Spring Security, Hibernate, JSF + Facelets, MySQL, Maven
 
 
