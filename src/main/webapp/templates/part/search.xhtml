@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<f:view>
+	<h:form id="form_search_id" styleClass="navbar-form navbar-left">
+		<div class="form-group">
+			<p:inputText id="input_search_id" styleClass="form-control"
+				placeholder="Search" value="#{clotheController.searchText}" />
+		</div>
+		<p:commandButton id="submit_search_id" type="submit"
+			styleClass="btn btn-default"
+			action="/pages/content.xhtml?faces-redirect=true"
+			actionListener="#{clotheController.searchAction}"
+			icon="fa fa-fw fa-search" style="zoom:1.4;" />
+	</h:form>
+</f:view>
+</html>

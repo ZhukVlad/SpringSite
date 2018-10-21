@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:o="http://omnifaces.org/ui">
+
+
+<h:body>
+
+	<ui:composition template="/templates/item/item-template.xhtml">
+
+		<ui:define name="content_item">
+
+			<h:form>
+				<p:dataGrid var="clothe" value="#{clotheController.getById()}"
+					column="1">
+
+					<div class="card">
+						<div class="container-fliud">
+							<div class="wrapper row">
+								<div class="preview col-md-6">
+									<div class="preview-pic tab-content">
+										<div class="tab-pane active" id="pic-1">
+											<o:graphicImage value="#{clothe.image}" dataURI="true" />
+										</div>
+									</div>
+								</div>
+								<div class="details col-md-6">
+									<h3 class="product-title">
+										<h:outputText value="#{clothe.name}" />
+									</h3>
+
+
+									<h4 class="price">
+										current price: <span><h:outputText
+												value="$#{clothe.price}" /></span>
+									</h4>
+
+									<h5 class="sizes">
+										Size: <span class="size" data-toggle="tooltip" title="small"><h:outputText
+												value="#{clothe.size}" /></span>
+									</h5>
+									<h5 class="sizes">
+										Color: <span class="color #{clothe.color}"></span>
+									</h5>
+									<div class="rating">
+										<p:rating id="rating" value="#{clothe.avgRating}"
+											readonly="true" styleClass="rating" cancel="false" stars="5">
+										</p:rating>
+									</div>
+									<p class="vote">
+										<strong><h:outputText
+												value="#{clotheController.getProc(clothe.viewCount, clothe.totalVoteCount )}%" /></strong>
+										of buyers voted for this product! <strong><h:outputText
+												value="(#{clothe.totalVoteCount} votes)" /></strong>
+									</p>
+										<p class="product-description">
+											<h:outputText value="#{clothe.descr}" />
+										</p>
+									<div class="action">
+										<button class="add-to-cart btn btn-default" type="button">Add
+											to cart</button>
+									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</h:body>
+
+</html>

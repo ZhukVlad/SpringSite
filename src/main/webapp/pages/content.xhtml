@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:o="http://omnifaces.org/ui">
+
+
+<h:body>
+	<ui:composition template="/templates/content/content-template.xhtml">
+
+		<ui:define name="content_top">
+
+			<h:form styleClass="clotheForm">
+				<p:dataGrid id="clotheList" var="clothe"
+					value="#{clotheController.lazyModel}" columns="3"
+					paginatorPosition="bottom" paginator="true"
+					rows="#{clotheController.rowsCount}" emptyMessage=""
+					rowIndexVar="rowIndexVar" rowsPerPageTemplate="10,15,20,30"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					lazy="true">
+
+					<ui:include src="../templates/part/main_content.xhtml" />
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+	</ui:composition>
+
+
+</h:body>
+
+</html>

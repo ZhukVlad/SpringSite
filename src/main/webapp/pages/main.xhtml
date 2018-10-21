@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:b="http://bootsfaces.net/ui" xmlns:o="http://omnifaces.org/ui">
+
+
+<h:body>
+
+
+	<ui:composition template="/templates/main/main-template.xhtml">
+		<ui:define name="content_top">
+			<h:form styleClass="clotheForm">
+				<p:dataGrid styleClass="clotheList" var="clothe"
+					value="#{clotheController.topClothe}" columns="3" emptyMessage="">
+					<ui:include src="../templates/part/main_content.xhtml" />
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="content_new_m">
+			<h:form styleClass="clotheForm">
+				<p:dataGrid styleClass="clotheList" var="clothe"
+					value="#{clotheController.getNewAdded(genderController.male)}"
+					columns="1" emptyMessage="test">
+					<ui:include src="../templates/part/main_content.xhtml" />
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="content_new_f">
+			<h:form styleClass="clotheForm">
+				<p:dataGrid styleClass="clotheList" var="clothe"
+					value="#{clotheController.getNewAdded(genderController.female)}"
+					columns="1" emptyMessage="test">
+					<ui:include src="../templates/part/main_content.xhtml" />
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+
+		<ui:define name="content_new_c">
+			<h:form styleClass="clotheForm">
+				<p:dataGrid styleClass="clotheList" var="clothe"
+					value="#{clotheController.getNewAdded(genderController.child)}"
+					columns="1" emptyMessage="test">
+					<ui:include src="../templates/part/main_content.xhtml" />
+				</p:dataGrid>
+			</h:form>
+		</ui:define>
+		
+	</ui:composition>
+
+
+</h:body>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<f:view id="menuView">
+	<div class="drpdown-content">
+		<b:row id="ctn_row">
+			<b:column id="menu_drp_ctn1">
+				<h3>Men</h3>
+				<p:repeat
+					value="#{typeController.findByGender(genderController.male)}"
+					var="type">
+					<p:commandLink action="/pages/content.xhtml?faces-redirect=true"
+						actionListener="#{clotheController.searchByMenu(type.id)}">#{type.name}</p:commandLink>
+				</p:repeat>
+			</b:column>
+			<b:column id="menu_drp_ctn2">
+				<h3>Women</h3>
+				<p:repeat
+					value="#{typeController.findByGender(genderController.female)}"
+					var="type">
+					<p:commandLink action="/pages/content.xhtml?faces-redirect=true"
+						actionListener="#{clotheController.searchByMenu(type.id)}">#{type.name}</p:commandLink>
+				</p:repeat>
+			</b:column>
+			<b:column id="menu_drp_ctn3">
+				<h3>Children</h3>
+				<p:repeat
+					value="#{typeController.findByGender(genderController.child)}"
+					var="type">
+					<p:commandLink action="/pages/content.xhtml?faces-redirect=true"
+						actionListener="#{clotheController.searchByMenu(type.id)}">#{type.name}</p:commandLink>
+				</p:repeat>
+			</b:column>
+		</b:row>
+	</div>
+</f:view>
+</html>
